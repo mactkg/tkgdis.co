@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>@nakamura先生の最新ツイート20件をランダムでお楽しみください</title>
+
+    <link href="../style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="../libs/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../libs/jsrender.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script id="theTmpl" type="text/x-jsrender">
+      <div class="tweet">
+        <div class="user">
+          <div class="icon">
+            <a href="https://twitter.com/{{:user.screen_name}}"><img src={{:user.profile_image_url_https}} /></a>
+          </div>
+          <div class="detail">
+            {{:user.name}}<a href="https://twitter.com/{{:user.screen_name}}">(@{{:user.screen_name}})</a>
+          </div>
+        </div>
+        <div class="text">
+          {{:text}}
+        </div>
+        <div class="date">
+          <a href="https://twitter.com/{{:user.screen_name}}/status/{{:id}}">{{:created_at}}</a>
+        </div>
+      </div>
+    </script>
+</head>
+<body>
+  <h1><a href="https://twitter.com/nakamura">@nakamura</a>先生の最新ツイート20件をランダムでお楽しみください</h1>
+  <div id="wrapper">
+    loading...
+  </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+body {
+  font-family: Verdana, "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, Meiryo, sans-serif;
+  margin: 0 0 0 10px;
+  padding: 0;
+}
+
+.exercise {
+  margin-left: 30px;
+}
+
+.user {
+  float: none;
+  overflow: hidden;
+}
+
+.user > .icon {
+  float: left;
+}
+
+.user > .detail {
+  float: left;
+  margin-left: 4px;
+}
