@@ -12,62 +12,52 @@
     <script type="text/javascript" src="../libs/processing.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
     <script type="text/processing" data-processing-target="processing-canvas-bezierCurve">
-      int i;
-      boolean p;
-      
-      
+      PVector[] points = new PVector[4];
+      int glabedPoint = -1;
       void setup() {
-        size(600, 600, P3D);
-        frameRate(60);
+        size(800, 400);
+      
+        points[0] = new PVector(75, 260);
+        points[1] = new PVector(170, 120);
+        points[2] = new PVector(350, 90);
+        points[3] = new PVector(500, 200);
       }
       
       void draw() {
-        background(0);
+        background(242);
+        for (float t=0; t<1.0; t+=0.001) {
+          float[] b = new float[4];
+          b[0] = pow(1-t, 3);
+          b[1] = 3*t*pow(1-t, 2);
+          b[2] = 3*t*t*(1-t);
+          b[3] = pow(t, 3);
       
-        perspective();
-        pushMatrix();
-        translate(width/2, 150);
-        rotateY(radians(360*frameCount/80.0));
-        noFill();
-        if(p) {
-          box(250);
+          float x = 0;
+          float y = 0;
+          for (int i=0; i<4; i++) {
+            x += points[i].x*b[i];
+            y += points[i].y*b[i];
+          }
+          point(x, y);
+        }
+      
+        for (int i=0; i<4; i++) {
+          fill(0);
+          ellipse(points[i].x, points[i].y, 10, 10);
+        }
+      
+        if (mousePressed) {
+          for (int i=0; i<4; i++) {
+            PVector p = points[i];
+            if (glabedPoint == i || dist(p.x, p.y, mouseX, mouseY) < 15) {
+              glabedPoint = i;
+              points[glabedPoint].x = mouseX;
+              points[glabedPoint].y = mouseY;
+            }
+          }
         } else {
-          sphere(200);
+          glabedPoint = -1;
         }
-        popMatrix();
-      
-        ortho();
-        pushMatrix();
-        stroke(255, 255, 255);
-        fill(128, 128, 128);
-        rect(50, 300, 450, 80);
-      
-        if(p) { 
-          fill(255, 0, 0);
-        } else {
-          noFill();
-        }
-        ellipse(180, 340, 60, 60);
-      
-        if(!p) {
-          fill(255, 0, 0);
-        } else { 
-          noFill();
-        }
-        ellipse(380, 340, 60, 60);
-        popMatrix();
-      }
-      
-      void mousePressed() {
-        if(dist(180, 340, mouseX, mouseY) < 30) {
-          p = true;
-        } else if( dist(380, 340, mouseX, mouseY) < 30) {
-          p = false;
-        }
-      }
-      
-      void keyPressed() {
-        p = !p;
       }
     </script>
     
@@ -214,12 +204,12 @@
     </script>
 </head>
 <body>
-  <h1>p5</h1>
+  <h1>Processing</h1>
   <div id="tabs">
     <ul>
       <li><a href="#tabs-coffee">coffeecup</a></li>
       <li><a href="#tabs-octahedron">octahedron</a></li>
-      <li><a href="#tabs-bezierCurve">interface3d</a></li>
+      <li><a href="#tabs-bezierCurve">bezierCurve</a></li>
     </ul>
     <div id="tabs-coffee">
       <canvas id="processing-canvas-coffeecup"></canvas>
@@ -227,7 +217,7 @@
     <div id="tabs-octahedron">
       <canvas id="processing-canvas-octahedron"></canvas>
     </div>
-    <div id="tabs-interface3d">
+    <div id="tabs-bezierCurve">
       <canvas id="processing-canvas-bezierCurve"></canvas>
     </div>
   </div>
