@@ -5,10 +5,231 @@
     <title>p5</title>
 
     <link href="../style.css" rel="stylesheet" type="text/css">
+    <link href="../libs/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    
+    <script type="text/javascript" src="../libs/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../libs/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../libs/processing.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
+    <script type="text/processing" data-processing-target="processing-canvas-bezierCurve">
+      int i;
+      boolean p;
+      
+      
+      void setup() {
+        size(600, 600, P3D);
+        frameRate(60);
+      }
+      
+      void draw() {
+        background(0);
+      
+        perspective();
+        pushMatrix();
+        translate(width/2, 150);
+        rotateY(radians(360*frameCount/80.0));
+        noFill();
+        if(p) {
+          box(250);
+        } else {
+          sphere(200);
+        }
+        popMatrix();
+      
+        ortho();
+        pushMatrix();
+        stroke(255, 255, 255);
+        fill(128, 128, 128);
+        rect(50, 300, 450, 80);
+      
+        if(p) { 
+          fill(255, 0, 0);
+        } else {
+          noFill();
+        }
+        ellipse(180, 340, 60, 60);
+      
+        if(!p) {
+          fill(255, 0, 0);
+        } else { 
+          noFill();
+        }
+        ellipse(380, 340, 60, 60);
+        popMatrix();
+      }
+      
+      void mousePressed() {
+        if(dist(180, 340, mouseX, mouseY) < 30) {
+          p = true;
+        } else if( dist(380, 340, mouseX, mouseY) < 30) {
+          p = false;
+        }
+      }
+      
+      void keyPressed() {
+        p = !p;
+      }
+    </script>
+    
+    <script type="text/processing" data-processing-target="processing-canvas-octahedron">
+    float t = 0;
+    int[][] r = new int[2][4];
+    
+    void setup() {
+      size(600, 600, P3D);
+      frameRate(60);
+    }
+    
+    void draw() {
+      background(255);
+    
+      camera(mouseX*2.3, mouseY*1.8, 200,
+             width/2, height/2, 0,
+             0, 1, 0);
+    
+      fill(255, 180, 0);
+      translate(width/2, height/2);
+    
+      for(int y = 0; y < 2; y++) {
+        for(int x = 0; x < 4; x++) {
+          if(frameCount%3 == 0)
+            r[y][x] = floor(random(4));
+          int i = r[y][x];
+          beginShape();
+          vertex(-100, 0, -100, 0, 480/4*i);
+          vertex(0, -141, 0, 320/4*i, 0);
+          vertex(100, 0, -100, 640/4*i, 480/4*i);
+          rotateY(radians(90));
+          endShape(CLOSE);
+        }
+        rotateZ(radians(180));
+      }
+    }
 
+    </script>
+    <script type="text/processing" data-processing-target="processing-canvas-coffeecup">
+    int t = 0;
+    boolean DEBUG=false;
+    
+    void setup() {
+      size(600, 600);
+    }
+    
+    void draw() {
+      background(242);
+      translate(width/2, height/2);
+    
+      // base
+      rotate(t/300.*PI);
+      fill(169, 215, 225);
+      ellipse(0, 0, 400, 400);
+    
+      if(DEBUG) {
+        pushStyle();
+          noFill();
+          strokeWeight(2);
+          line(0, 0, 200, 0);
+          stroke(255, 0, 0);
+          ellipse(0, 0, 250, 250);
+        popStyle();
+      }
+    
+      // cup1
+      pushMatrix();
+        translate(125, 0);
+        rotate(t/100.*PI);
+        if(DEBUG)
+          fill(211, 235, 241, 200);
+        else
+          fill(211, 235, 241);
+        ellipse(0, 0, 110, 110);
+    
+        if(DEBUG) {
+          pushStyle();
+            fill(0);
+            ellipse(0, 0, 10, 10);
+          popStyle();
+        }
+    
+        // user1
+        pushMatrix();
+          translate(30, 0);
+          fill(255, 0, 0);
+          ellipse(0, 0, 30, 30);    
+        popMatrix();
+    
+        // user2
+        pushMatrix();
+          translate(-30, 0);
+          fill(0, 0, 255);
+          ellipse(0, 0, 30, 30);    
+        popMatrix();
+      popMatrix();
+    
+      //*************************************
+      // cup2
+      pushMatrix();
+        translate(-125, 0);
+        rotate(t/100.*PI);
+        if(DEBUG)
+          fill(211, 235, 241, 200);
+        else
+          fill(211, 235, 241);
+        ellipse(0, 0, 110, 110);
+    
+        if(DEBUG) {
+          pushStyle();
+            fill(0);
+            ellipse(0, 0, 10, 10);
+          popStyle();
+        }
+    
+        // user1
+        pushMatrix();
+          translate(30, 0);
+          fill(255, 0, 0);
+          ellipse(0, 0, 30, 30);    
+        popMatrix();
+    
+        // user2
+        pushMatrix();
+          translate(-30, 0);
+          fill(0, 0, 255);
+          ellipse(0, 0, 30, 30);    
+        popMatrix();
+      popMatrix();
+    
+      if(DEBUG) {
+        t = int(1.*mouseX/height*600);
+      } else {
+        t++;
+      }
+    }
+    
+    void keyPressed() {
+      if(key == ' ') {
+        DEBUG = !DEBUG;
+      }
+    }
+    </script>
 </head>
 <body>
-  <h1>p5</h1>  
+  <h1>p5</h1>
+  <div id="tabs">
+    <ul>
+      <li><a href="#tabs-coffee">coffeecup</a></li>
+      <li><a href="#tabs-octahedron">octahedron</a></li>
+      <li><a href="#tabs-bezierCurve">interface3d</a></li>
+    </ul>
+    <div id="tabs-coffee">
+      <canvas id="processing-canvas-coffeecup"></canvas>
+    </div>
+    <div id="tabs-octahedron">
+      <canvas id="processing-canvas-octahedron"></canvas>
+    </div>
+    <div id="tabs-interface3d">
+      <canvas id="processing-canvas-bezierCurve"></canvas>
+    </div>
+  </div>
 </body>
 </html>
