@@ -25,3 +25,8 @@ body {
   float: left;
   margin-left: 4px;
 }
+
+#map {
+  width: 800px;
+  height: 600px;
+}
