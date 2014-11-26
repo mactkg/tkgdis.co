@@ -10,6 +10,7 @@
       <div class="subject">
         <h2>{{:name}}</h2>
         <div class="teachers">
+          <h3>担当教員</h3>
           {{for teachers.teacher}}
             {{>#data}}
           {{/for}}
@@ -24,7 +25,8 @@
         </div>
         {{if text}}
         <div class="text"> 
-            教科書: {{>text}}
+          <h3>教科書</h3>
+          {{>text}}
         </div>
         {{/if}}
         {{if reference}}
