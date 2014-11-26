@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>jquery.xdomainajax.jsのテスト</title>
+    <script src="../../libs/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../libs/jsrender.min.js"></script>
+    <script src="script.js" type="text/javascript"></script>
+    <script id="theTmpl" type="text/x-jsrender">
+      <div class="subject">
+        <h2>{{:name}}</h2>
+        <div class="teachers">
+          {{for teachers.teacher}}
+            {{>#data}}
+          {{/for}}
+        </div>
+        <div class="plan">
+          <h3>授業計画</h3>
+          <ol>
+            {{for plan.p}}
+            <li>{{>#data}}</li>
+            {{/for}}
+          </ol>
+        </div>
+        {{if text}}
+        <div class="text"> 
+            教科書: {{>text}}
+        </div>
+        {{/if}}
+        {{if reference}}
+        <div class="references">
+          <h3>参考書</h3>
+          <ul>
+            {{for reference.r}}
+            <li>{{>#data}}</li>
+            {{/for}}
+          </ul>
+        </div>
+        {{/if}}
+        {{if evaluation}}
+        <div class="evaluation">
+          <h3>評価基準</h3>
+          <ul>
+            {{for evaluation.e}}
+            <li>{{>#data}}</li>
+            {{/for}}
+          </ul>
+        </div>
+        {{/if}}
+      </div>
+      <div id="progress"></div>
+    </script>
+  </head>
+  <body>
+    <h1>現在受講しているFMSの講義情報一覧</h1>
+    <div id="subjects"></div>
+  </body>
+</html>
