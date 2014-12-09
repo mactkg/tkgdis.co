@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Tumblr Image Loader</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <script type="text/javascript" src="../../libs/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../../libs/jsrender.min.js"></script>
+    <script type="text/javascript" src="../../libs/jquery.bottom.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script id="theTmpl" type="text/x-jsrender">
+      {{for response.posts}}
+      <div class="post">
+        {{for photos}}
+        <div class="photo">
+          <a href={{:original_size.url}}><img src={{:original_size.url}}></a>
+        </div>
+        {{/for}}
+      </div>
+      {{/for}}
+    </script>
+  </head>
+  <body>
+    <h1>Get images from tumblog(with infinite scrolling)</h1>
+    <input name="url" type="text" value="vj-gif.tumblr.com"> <button id="get">GET</button>
+    <div id="wrapper"></div>
+  </body>
+</html>
