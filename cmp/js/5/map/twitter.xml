@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<teachers>
+  <teacher>
+    <name lang="ja">阿原 一志</name>
+    <name lang="en">Kazushi AHARA</name>
+    <twitter>
+      <id>74365007</id>
+      <screen_name>kazuaha63</screen_name>
+    </twitter>
+  </teacher>
+  <teacher>
+    <name lang="ja">荒川 薫</name>
+    <name lang="en">Kaoru ARAKAWA</name>
+    <twitter>
+      <id>800443382</id>
+      <screen_name>karakawa7</screen_name>
+    </twitter>
+  </teacher>
+  <teacher>
+    <name lang="ja">五十嵐 悠紀</name>
+    <name lang="en">Yuki IGARASHI</name>
+    <twitter>
+      <id>220867162</id>
+      <screen_name>yuki_igrs</screen_name>
+    </twitter>
+  </teacher>
+  <teacher>
+    <name lang="ja">菊池 浩明</name>
+    <name lang="en">Hiroaki KIKUCHI</name>
+    <twitter>
+      <id></id>
+      <screen_name></screen_name>
+    </twitter>
+  </teacher>
+  <teacher>
+    <name lang="ja">小林 稔</name>
+    <name lang="en">Minoru KOBAYASHI</name>
+    <twitter>
+      <id>189911812</id>
+      <screen_name>minorukob</screen_name>
+    </twitter>
+  </teacher>
+  <teacher>
+    <name lang="ja">小松 孝徳</name>
+    <name lang="en">Takanori KOMATSU</name>
+    <twitter>
+      <id>125573409</id>
+      <screen_name>tkomatlab</screen_name>
+    </twitter>
+  </teacher>
+  <teacher>
+    <name lang="ja">斉藤 裕樹</name>
+    <name lang="en">Yuki SAITO</name>
+    <twitter>
+      <id></id>
+      <screen_name></screen_name>
+    </twitter>
+  </teacher>
+  <teacher>
+    <name lang="ja">嵯峨山 茂樹</name>
+    <name lang="en">Shigeki SAGAYAMA</name>
+    <twitter>
+      <id></id>
+      <screen_name></screen_name>
+    </twitter>
+  </teacher>
+  <teacher>
+    <name lang="ja">鹿喰 善明</name>
+    <name lang="en">Yoshiaki SHISHIKUI</name>
+    <twitter>
+      <id></id>
+      <screen_name></screen_name>
+    </twitter>
+  </teacher>
+  <teacher>
+    <name lang="ja">鈴木　正明</name>
+    <name lang="en">Masaaki SUZUKI</name>
+    <twitter>
+      <id></id>
+      <screen_name></screen_name>
+    </twitter>
+  </teacher>
+  <teacher>
+    <name lang="ja">中村　聡史</name>
+    <name lang="en">Satoshi NAKAMURA</name>
+    <twitter>
+      <id>3988251</id>
+      <screen_name>nakamura</screen_name>
+    </twitter>
+  </teacher>
+  <teacher>
+    <name lang="ja">橋本　直</name>
+    <name lang="en">Sunao HASHIMOTO</name>
+    <twitter>
+      <id>41553974</id>
+      <screen_name>kougaku</screen_name>
+    </twitter>
+  </teacher>
+  <teacher>
+    <name lang="ja">福地　健太郎</name>
+    <name lang="en">Kentaro FUKUCHI</name>
+    <twitter>
+      <id>38012830</id>
+      <screen_name>kentarofukuchi</screen_name>
+    </twitter>
+  </teacher>
+  <teacher>
+    <name lang="ja">宮下　芳明</name>
+    <name lang="en">Homei MIYASHITA</name>
+    <twitter>
+      <id>6756242</id>
+      <screen_name>HomeiMiyashita</screen_name>
+    </twitter>
+  </teacher>
+  <teacher>
+    <name lang="ja">渡邊　恵太</name>
+    <name lang="en">Keita WATANABE</name>
+    <twitter>
+      <id>4460521</id>
+      <screen_name>100kw</screen_name>
+    </twitter>
+  </teacher>
+</teachers>
