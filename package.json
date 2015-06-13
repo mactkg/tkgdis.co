@@ -1,0 +1,25 @@
+{
+  "name": "tkgdis.co",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mactkg/tkgdis.co.git"
+  },
+  "author": "mactkg <mactkg@gmail.com> (http://makerbox.net/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mactkg/tkgdis.co/issues"
+  },
+  "homepage": "https://github.com/mactkg/tkgdis.co",
+  "devDependencies": {
+    "bower": "^1.4.1",
+    "gulp-concat": "^2.5.2",
+    "gulp-filter": "^2.0.2",
+    "main-bower-files": "^2.8.0"
+  }
+}
