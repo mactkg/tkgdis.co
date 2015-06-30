@@ -1,0 +1,3 @@
+[submodule "slitscan"]
+	path = slitscan
+	url = git@github.com:mactkg/slitscan.git
