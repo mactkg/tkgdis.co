@@ -1,3 +1,7 @@
 [submodule "slitscan"]
 	path = slitscan
 	url = https://github.com/mactkg/slitscan.git
+[submodule "slitscan-mov"]
+	path = slitscan-mov
+	url = https://github.com/mactkg/slitscan.git
+	branch = mov
